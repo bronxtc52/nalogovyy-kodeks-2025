@@ -1,0 +1,41 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Проверки целостности корпуса
+        run: python3 scripts/validate.py
+
+      - name: Чанки пересобираются из Markdown без расхождений
+        run: |
+          python3 scripts/build_chunks.py --out /tmp/chunks.jsonl
+          diff -q /tmp/chunks.jsonl data/chunks.jsonl \
+            || { echo "data/chunks.jsonl не соответствует code/ru — пересоберите: python3 scripts/build_chunks.py"; exit 1; }
+
+      - name: Полнотекстовый индекс собирается и ищет
+        run: |
+          python3 scripts/build_sqlite.py
+          python3 - <<'CHECK'
+          import sqlite3, sys
+          rows = sqlite3.connect("dist/tax.sqlite").execute(
+              "SELECT COUNT(*) FROM chunks_fts WHERE chunks_fts MATCH 'налоговый регистр'"
+          ).fetchone()[0]
+          print(f"совпадений по контрольному запросу: {rows}")
+          sys.exit(0 if rows else 1)
+          CHECK
+
+      - name: Эталонный прогон поиска
+        run: python3 scripts/eval_fts.py

@@ -1,0 +1,51 @@
+# Налоговый кодекс Республики Казахстан — машинно-читаемый корпус
+
+> Полный текст НК РК в редакции 2026-01-01 (849 статей, 3147 чанков по пунктам): Markdown с frontmatter как источник истины, JSONL-чанки и локальный полнотекстовый индекс. Неофициальная копия: для юридически значимых решений сверяйтесь с эталонным контрольным банком НПА.
+
+Кодекс введён в действие с 2026-01-01 (статья 848); отдельные нормы — позднее, точная дата у каждой статьи в поле effective_from. Каждый пункт статьи адресуем якорем вида `st-190.md#p-3`, чанк — идентификатором `.../st-190/p-3`, поэтому цитату можно дать до пункта.
+
+## Начать отсюда
+
+- [Оглавление](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/index.md): полное дерево часть → раздел → глава → параграф → статья со ссылками на файлы.
+- [README](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/README.md): что внутри, четыре способа подключения, границы корпуса.
+- [Схема полей](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/SCHEMA.md): frontmatter статьи, запись чанка, манифест, инварианты CI.
+- [Правовой статус](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/DISCLAIMER.md): почему это неофициальная копия и что из этого следует.
+
+## Данные
+
+- [manifest.json](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/manifest.json): редакция, счётчики, sha256 по каждому файлу, аномалии источника.
+- [chunks.jsonl](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/data/chunks.jsonl): 3147 чанков по пунктам статей с контекстными заголовками; медиана ≈145 токенов.
+- [Эталонные вопросы](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/eval/qa-ru.jsonl) и [baseline-прогон](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/eval/RESULTS.md): честные цифры лексического поиска без эмбеддингов.
+
+## Разделы кодекса
+
+- [Раздел 1. Общие положения](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/01-obshchaya-chast/razdel-01-obshchie-polozheniya): Общая часть, статьи 1–56, всего 56.
+- [Раздел 2. Налоговое обязательство](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/01-obshchaya-chast/razdel-02-nalogovoe-obyazatelstvo): Общая часть, статьи 57–89, всего 33.
+- [Раздел 3. Налоговое администрирование](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/01-obshchaya-chast/razdel-03-nalogovoe-administrirovanie): Общая часть, статьи 90–200, всего 111.
+- [Вне разделов](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-00-vne-razdelov): Особенная часть, статьи 201–220, всего 20.
+- [Раздел 4. Общие положения по налогообложению доходов резидентов и нерезидентов](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-04-obshchie-polozheniya-po-nalogooblozheniyu): Особенная часть, статьи 221–232, всего 12.
+- [Раздел 5. Корпоративный подоходный налог](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-05-korporativnyy-podokhodnyy-nalog): Особенная часть, статьи 233–359, всего 127.
+- [Раздел 6 (название отсутствует в источнике)](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-06-bez-nazvaniya-v-istochnike): Особенная часть, статьи 360–446, всего 88.
+- [Раздел 7. Налог на добавленную стоимость](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-07-nalog-na-dobavlennuyu-stoimost): Особенная часть, статьи 447–533, всего 87.
+- [Раздел 8. Акцизы](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-08-aktsizy): Особенная часть, статьи 534–554, всего 21.
+- [Раздел 9. Социальный налог](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-09-sotsialnyy-nalog): Особенная часть, статьи 555–562, всего 8.
+- [Раздел 10. Налог на транспортные средства](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-10-nalog-na-transportnye-sredstva): Особенная часть, статьи 563–569, всего 7.
+- [Раздел 11. Земельный налог](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-11-zemelnyy-nalog): Особенная часть, статьи 570–587, всего 18.
+- [Раздел 12. Налог на имущество](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-12-nalog-na-imushchestvo): Особенная часть, статьи 588–604, всего 17.
+- [Раздел 13. Налог на игорный бизнес](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-13-nalog-na-igornyy-biznes): Особенная часть, статьи 605–611, всего 7.
+- [Раздел 14. Платежи в бюджет](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-14-platezhi-v-byudzhet): Особенная часть, статьи 612–678, всего 67.
+- [Раздел 15. Налогообложение нерезидентов](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-15-nalogooblozhenie-nerezidentov): Особенная часть, статьи 679–714, всего 36.
+- [Раздел 16. Специальные налоговые режимы](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-16-spetsialnye-nalogovye-rezhimy): Особенная часть, статьи 715–733, всего 19.
+- [Раздел 17. Налоговые преференции и льготы на основании договоров (контрактов)](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-17-nalogovye-preferentsii-i-lgoty-na-osnovanii): Особенная часть, статьи 734–745, всего 12.
+- [Раздел 18. Рентный налог на экспорт](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-18-rentnyy-nalog-na-eksport): Особенная часть, статьи 746–752, всего 7.
+- [Раздел 19. Налогообложение недропользователей](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-19-nalogooblozhenie-nedropolzovateley): Особенная часть, статьи 753–819, всего 67.
+- [Раздел 20. Единый платеж](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-20-edinyy-platezh): Особенная часть, статьи 820–825, всего 6.
+- [Раздел 21. Особенности налогообложения иностранных компаний при осуществлении электронной торговли товарами, оказании услуг в электронной форме физическим лицам](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-21-osobennosti-nalogooblozheniya-inostrannykh): Особенная часть, статьи 826–827, всего 2.
+- [Раздел 22. Заключительные и переходные положения](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/code/ru/02-osobennaya-chast/razdel-22-zaklyuchitelnye-i-perekhodnye-polozheniya): Особенная часть, статьи 828–848, всего 21.
+
+## Optional
+
+- [Скрипты сборки](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/scripts): выгрузка → Markdown → чанки → sqlite; только стандартная библиотека Python.
+- [Проверки целостности](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/scripts/validate.py): 15 инвариантов, гоняются в CI на каждый PR.
+- [Происхождение](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/provenance): оглавление и манифест исходной выгрузки с хэшами.
+- [История редакций](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/CHANGELOG.md): версии корпуса и редакции кодекса.

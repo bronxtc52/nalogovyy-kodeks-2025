@@ -1,0 +1,192 @@
+{
+  "profile": "data-package",
+  "name": "kz-tax-code-2025",
+  "title": "Налоговый кодекс Республики Казахстан — машинно-читаемый корпус",
+  "description": "Полный текст НК РК в редакции 2026-01-01: 849 статей в Markdown с frontmatter и чанки по пунктам для RAG. Неофициальная копия, см. DISCLAIMER.md.",
+  "version": "0.1.0",
+  "created": "2026-08-17T04:12:10.230Z",
+  "keywords": [
+    "kazakhstan",
+    "tax",
+    "legal",
+    "rag",
+    "llm",
+    "markdown",
+    "налоговый кодекс"
+  ],
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "title": "CC0 1.0 — разметка и метаданные",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "name": "MIT",
+      "title": "MIT — код в scripts/",
+      "path": "https://opensource.org/licenses/MIT"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Учет.kz",
+      "path": "https://new.uchet.kz/tax-code?TAX_CODE=nalogovyy-kodeks-2025",
+      "note": "Текст нормативного акта не охраняется авторским правом (ст. 8 Закона РК «Об авторском праве и смежных правах»); оформление и комментарии портала не воспроизводятся."
+    }
+  ],
+  "resources": [
+    {
+      "name": "chunks",
+      "path": "data/chunks.jsonl",
+      "format": "ndjson",
+      "mediatype": "application/x-ndjson",
+      "encoding": "utf-8",
+      "description": "Чанки по пунктам статей с контекстными заголовками.",
+      "bytes": 10458864,
+      "hash": "sha256:c9543b385036027bafc073c41d88233e2453d5a0da3e326fd6165530d7a4020f",
+      "schema": {
+        "fields": [
+          {
+            "name": "chunk_id",
+            "type": "string",
+            "description": "идентификатор чанка, включает статью и пункт"
+          },
+          {
+            "name": "parent_id",
+            "type": "string",
+            "description": "идентификатор статьи"
+          },
+          {
+            "name": "doc_id",
+            "type": "string",
+            "description": "идентификатор документа"
+          },
+          {
+            "name": "lang",
+            "type": "string",
+            "description": "язык текста"
+          },
+          {
+            "name": "article",
+            "type": "string",
+            "description": "номер статьи"
+          },
+          {
+            "name": "heading",
+            "type": "string",
+            "description": "заголовок статьи"
+          },
+          {
+            "name": "point",
+            "type": "string",
+            "description": "номер пункта, null для статей без нумерации"
+          },
+          {
+            "name": "anchor",
+            "type": "string",
+            "description": "якорь в Markdown-файле"
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "description": "путь в структуре кодекса"
+          },
+          {
+            "name": "razdel",
+            "type": "integer",
+            "description": "номер раздела"
+          },
+          {
+            "name": "glava",
+            "type": "integer",
+            "description": "номер главы"
+          },
+          {
+            "name": "paragraf",
+            "type": "integer",
+            "description": "номер параграфа"
+          },
+          {
+            "name": "context_header",
+            "type": "string",
+            "description": "контекстный префикс для индексации"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "текст пункта"
+          },
+          {
+            "name": "revision_id",
+            "type": "string",
+            "description": "редакция корпуса"
+          },
+          {
+            "name": "effective_from",
+            "type": "date",
+            "description": "дата введения в действие"
+          },
+          {
+            "name": "effective_to",
+            "type": "date",
+            "description": "дата утраты силы"
+          },
+          {
+            "name": "cross_references",
+            "type": "array",
+            "description": "номера статей, на которые ссылается статья"
+          },
+          {
+            "name": "file",
+            "type": "string",
+            "description": "путь к Markdown-файлу статьи"
+          },
+          {
+            "name": "source_url",
+            "type": "string",
+            "description": "ссылка на статью в источнике"
+          },
+          {
+            "name": "text_sha256",
+            "type": "string",
+            "description": "хэш текста чанка"
+          },
+          {
+            "name": "approx_tokens",
+            "type": "integer",
+            "description": "оценка длины в токенах (символы ÷ 3.2)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "manifest",
+      "path": "manifest.json",
+      "format": "json",
+      "mediatype": "application/json",
+      "encoding": "utf-8",
+      "description": "Редакция, счётчики, хэши файлов, аномалии источника.",
+      "bytes": 1111085,
+      "hash": "sha256:82e0298114ec0a1839d7298ee4241defe8eca7c0cb3ba81d50cb52cabc5fb105"
+    },
+    {
+      "name": "index",
+      "path": "index.md",
+      "format": "md",
+      "mediatype": "text/markdown",
+      "encoding": "utf-8",
+      "description": "Оглавление со ссылками на все статьи.",
+      "bytes": 244195,
+      "hash": "sha256:1b531845fcd66f2b43e738f87c0a229be10055912f14e9407584b4bd7bf31190"
+    },
+    {
+      "name": "eval-qa-ru",
+      "path": "eval/qa-ru.jsonl",
+      "format": "ndjson",
+      "mediatype": "application/x-ndjson",
+      "encoding": "utf-8",
+      "description": "Эталонные вопросы «вопрос → ожидаемые статьи».",
+      "bytes": 23383,
+      "hash": "sha256:440932da2571beda7a453b9b24336a17042c2422024915a26f9d583ac1322f7d"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Проверки перед сборкой артефактов
+        run: python3 scripts/validate.py
+
+      - name: Сборка артефактов релиза
+        run: |
+          mkdir -p dist
+          python3 scripts/build_sqlite.py --out dist/tax.sqlite
+          gzip -9 -c data/chunks.jsonl > dist/chunks.jsonl.gz
+          cp manifest.json dist/manifest.json
+          (cd dist && sha256sum tax.sqlite chunks.jsonl.gz manifest.json > SHA256SUMS)
+
+      - name: Публикация релиза
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "Корпус НК РК ${GITHUB_REF_NAME}" \
+            --notes-file CHANGELOG.md \
+            dist/tax.sqlite dist/chunks.jsonl.gz dist/manifest.json dist/SHA256SUMS
