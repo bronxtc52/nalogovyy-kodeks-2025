@@ -45,6 +45,8 @@
 
 ## Optional
 
+- [Готовый ассистент](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/scripts/ask.py): `python3 scripts/ask.py "вопрос"` — поиск нормы, контекст, ответ со ссылкой на статью и пункт.
+- [Инструкция для агента](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/CLAUDE.md): как искать статью в этом репозитории и как на неё ссылаться.
 - [Скрипты сборки](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/scripts): выгрузка → Markdown → чанки → sqlite; только стандартная библиотека Python.
 - [Проверки целостности](https://raw.githubusercontent.com/bronxtc52/nalogovyy-kodeks-2025/main/scripts/validate.py): 15 инвариантов, гоняются в CI на каждый PR.
 - [Происхождение](https://github.com/bronxtc52/nalogovyy-kodeks-2025/blob/main/provenance): оглавление и манифест исходной выгрузки с хэшами.
